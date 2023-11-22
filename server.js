@@ -4,7 +4,7 @@ const users = require('./users.js');
 var bodyParser = require('body-parser');
 
 const app = express()
-const port = 3000
+const port = process.env.port
 const cors = require('cors');
 
 app.use(bodyParser.json());
