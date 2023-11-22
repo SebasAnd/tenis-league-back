@@ -3,12 +3,19 @@ const router = express.Router();
 require('dotenv').config();
 const { Pool,Client } = require('pg');
 var bodyParser = require('body-parser');
-const credentials ={
+/*const credentials ={
     user: process.env.DBUSER,
     host: process.env.DBHOST,
     database: process.env.DBNAME,
     password: process.env.DBPASSWORD,
     port: process.env.DBPORT,
+  };*/
+
+  const credentials={
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
   };
 
 router.use(bodyParser.json());
